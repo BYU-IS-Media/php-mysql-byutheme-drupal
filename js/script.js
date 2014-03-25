@@ -155,6 +155,11 @@ var byu_template = (function ($) {
 
 	}
 
+    /*!
+    Func: ExecuteAfterBreakpoint
+    Desc: Execute a function once (and only once) after a pixel width has been reached
+    Auth: Nate Walton (BYU Web Community Project) */
+    window.executeAfterBreakpoint=function(functionObject,breakpoint){"use strict";function checkBreakpoint(){!functionsExecuted&&$(window).width()>breakpoint&&(executeFunctions(),$(window).off("resize",checkBreakpoint))}function executeFunctions(){var len=functions.length;functionsExecuted=!0;for(var x=0;len>x;x++)functions[x]()}var functionsExecuted=!1,functions=functionObject;return"function"==typeof functionObject&&(functions=[functionObject]),!functions instanceof Array?(console.log("ExecuteAfterBreakpoint error: functionObj must be a function or an array of functions"),console.log("Syntax: executeAfterBreakpoint(functionObj, breakpoint)"),console.log("Your argument: "+functionObject),void 0):"number"!=typeof breakpoint?(console.log("ExecuteAfterBreakpoint error: breakpoint must be a number"),console.log("Syntax: executeAfterBreakpoint(functionObj, breakpoint)"),console.log("Your argument: "+breakpoint),void 0):(!functionsExecuted&&$(window).width()>breakpoint?executeFunctions():$(window).resize(checkBreakpoint),void 0)}
 
 
 }(jQuery));

@@ -35,6 +35,17 @@
     $gender = '';
   }
   
+  if (!empty($node->field_hide_gender)) { 
+    $hide_gender = render( $content['field_hide_gender'] ) . ' ';
+  } else {
+    $hide_gender = '';
+  }
+  $is_hidden = strpos($hide_gender, 'hidden'); // Will be false if it's not there
+
+  if($is_hidden !== false) {
+    $gender = '';
+  }
+
   if (!empty($node->field_sport_venue)) { 
     $venueTitle = render( $content['field_sport_venue'] );
     $query = new EntityFieldQuery();
@@ -80,6 +91,4 @@
     <?php print $venue; ?>
   </div>
 </div>
-
-<!-- /.node-sport -->
 

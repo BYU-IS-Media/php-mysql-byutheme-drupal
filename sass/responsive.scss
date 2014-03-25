@@ -37,7 +37,7 @@
 // Components: common
 //	@import "bootstrap/sprites";
 	@import "bootstrap/dropdowns";
-//	@import "bootstrap/component-animations";
+	@import "bootstrap/component-animations";
 //	@import "bootstrap/close";
 
 // Components: Buttons & Alerts
@@ -62,7 +62,7 @@
 //	@import "bootstrap/media";
 //	@import "bootstrap/labels-badges";
 //	@import "bootstrap/progress-bars";
-//	@import "bootstrap/accordion";
+	@import "bootstrap/accordion";
 //	@import "bootstrap/carousel";
 //	@import "bootstrap/hero-unit";
 
@@ -143,11 +143,12 @@ BYU Styles
 		margin-right: -$display_width/2;
 	}
 
-	#footer-links .wrapper {
-		max-width: $larger-width * .91;
-		margin-left: auto;
-		margin-right: auto;
-		padding-left: 8%;
+	#page-footer #footer-links {
+		.wrapper {
+			max-width: 1124px;
+			@include box-sizing( content-box );
+			padding-left: 90px;
+		}
 	}
 
 }

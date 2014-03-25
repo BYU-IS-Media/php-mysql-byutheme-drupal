@@ -3,6 +3,8 @@
  * BYU theme page to generate the markup for a single page.
  */
 ?>
+
+
 <header id="main-header" role="banner">
 	<div id="header-top" class="wrapper">
 			
@@ -14,10 +16,8 @@
 	</div>
 </header>
 
-<div id="search-menu">	
-	<div id="search-container" role="search">	
-		<?php print render($search_box) ?>
-	</div>
+<div id="search-menu">
+	<div id="search-container" role="search"></div>
 	<a href="#primary-nav" class="menu-button">Menu</a>  
 </div>
 	
@@ -49,10 +49,14 @@ $sidebar_left  = render($page['sidebar_left']);
 $sidebar_right = render($page['sidebar_right']);
 ?>
 
-<div id="content" class="wrapper clearfix <?php print ($sidebar_left && $sidebar_right ? 'two-sidebars' : ($sidebar_left || $sidebar_right ? 'one-sidebar' : '')) ?>" role="main">
+
+
+
+
+<div id="content" class="wrapper clearfix<?php print (drupal_is_front_page() ? ' front-page' : '') ?>" role="main">
 	<?php print render($page['highlighted']); ?>
 
-	<?php if ( $title && !drupal_is_front_page()): ?>
+	<?php if ( $title && !drupal_is_front_page()) : ?>
 	  <h1 class="title" id="page-title"><?php print $title; ?></h1>
 	<?php endif; ?>
 
@@ -81,29 +85,13 @@ $sidebar_right = render($page['sidebar_right']);
       
 </div>
 
+
+
+
 <footer id="page-footer" role="contentinfo">
 		<div id="footer-links">
 			<div class="wrapper">
-
-				<div class="col alpha">
-					<h2>Links</h2>
-					<?php if (module_exists('cas')): ?>
-						<?php if (user_is_logged_in()): ?>
-							<a href="caslogout">Sign Out</a>
-						<?php else: ?>
-							<a href="cas">Admin</a>
-						<?php endif; ?>
-					<?php else: ?>
-						<?php if (user_is_logged_in()): ?>
-							<a href="logout">Sign out</a>
-						<?php else: ?>
-							<a href="user">Admin</a>
-						<?php endif; ?>
-					<?php endif; ?>
-				</div>
-
 				<?php print render($page['footer']); ?>
-
 			</div>
 		</div>
 

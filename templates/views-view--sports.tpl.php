@@ -27,7 +27,7 @@
  * @ingroup views_templates
  */
 ?>
-<div class="sports home">
+<div class="promos home">
 <?php
   // print render($title_prefix);
   // if ($title):
