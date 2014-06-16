@@ -106,7 +106,7 @@ $sidePadding:5px;
 				@include border-radius(5px);
 
 				&:before {
-					content:"×";
+					content:" ";
 					font-size: 2em;
 					position: absolute;
 					top:0;
